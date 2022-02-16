@@ -73,9 +73,10 @@ python deleteStopCodon.py
 ```
 ### 9.Run paml mcmctree
 #### 9.1 Configure 'mcmctree.ctl' file
-```bash
+```
 vi mcmctree.ctl
-#          seed = -1
+
+          seed = -1
        seqfile = mtCDNApri123.txt ### Change to the actual file name
       treefile = mtCDNApri.trees ### Change to the actual file name
       mcmcfile = mcmc.txt
