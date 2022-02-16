@@ -38,7 +38,7 @@ vi treefile
 ```
 #### 3.3 time search in [Timetree](http://www.timetree.org/) and reconstituted species tree
 ![Coffea_canephora_Solanum_lycopersicum_timetree](./Coffea_canephora_Solanum_lycopersicum_timetree.png)
-![Vitis vinifera_Coffea_canephora1_timetree.png](./Vitis vinifera_Coffea_canephora1_timetree.png)
+![Vitis vinifera_Coffea_canephora1_timetree.png](./Vitis vinifera_Coffea_canephora_timetree.png)
 
 ```bash
 vi treefile
