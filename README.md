@@ -37,8 +37,9 @@ vi treefile
 #(Vvinifera, (Ccanephora , (Slycopers, ((Ccampestri, Caustralis)((Inil, Iaquatica), (Ibatatas, (Itriloba, Itrifida)))))));
 ```
 #### 3.3 time search in [Timetree](http://www.timetree.org/) and reconstituted species tree
-![Coffea_canephora_Solanum_lycopersicum_timetree](./Coffea_canephora_Solanum_lycopersicum_timetree.png)
-![Vitis vinifera_Coffea_canephora1_timetree.png](./Vitis vinifera_Coffea_canephora_timetree.png)
+![Coffea_canephora_Solanum_lycopersicum_timetree](./Coffea_canephora_vs_Solanum_lycopersicum_timetree.png)
+
+![Vitis vinifera_Coffea_canephora1_timetree.png](./Vitis_vinifera_vs_Coffea_canephora_timetree.png)
 
 ```bash
 vi treefile
