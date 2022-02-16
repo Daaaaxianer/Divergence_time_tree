@@ -129,6 +129,8 @@ END;
 
 ``` 
 2.Open with [Figtree](http://tree.bio.ed.ac.uk/software/figtree/) and convert to nwk format 
+
+![ultrametric tree](./ultrametric_tree_in_nwk.png)
 ```
 (Vvinifera:1.181926,(Ccanephora:0.870088,(Slycopers:0.718614,((Ccampestri:0.034704,Caustralis:0.034704):0.364862,((Inil:0.08297,Iaquatica:0.08297):0.004822,(Ibatatas:0.041204,(Itriloba:0.038652,Itrifida:0.038652):0.002551):0.046589):0.311773):0.319049):0.151473):0.311839);
 ```
