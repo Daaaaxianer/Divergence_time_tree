@@ -75,13 +75,6 @@ python deleteStopCodon.py
 #### 9.1 Configure 'mcmctree.ctl' file
 ```bash
 vi mcmctree.ctl
-seqfile = all.singlecopy.phy
-treefile = treefile
-outfile = out
-```
-#### 9.2 run mcmctree
-```bash
-vi mcmctree.ctl
 #          seed = -1
        seqfile = mtCDNApri123.txt ### Change to the actual file name
       treefile = mtCDNApri.trees ### Change to the actual file name
@@ -117,6 +110,7 @@ vi mcmctree.ctl
 *** Note: Make your window wider (100 columns) before running the program.
 
 ```
+#### 9.2 run mcmctree
 ```bash
 ./mcmctree mcmctree.ctl
 ```
