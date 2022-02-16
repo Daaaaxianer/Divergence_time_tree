@@ -117,7 +117,7 @@ vi mcmctree.ctl
 ```
 ## Result
 ### 1.FigTree.tre
-ultrametric tree of selected species
+ultrametric tree of selected species（The time standard is 100 million years）
 
 ```
 #NEXUS
@@ -130,7 +130,7 @@ END;
 ``` 
 ### 2.Open with [Figtree](http://tree.bio.ed.ac.uk/software/figtree/) and convert to nwk format 
 
-#### 2.1 figure of ultrametric tree
+#### 2.1 figure of ultrametric tree 
 ![ultrametric tree](./ultrametric_tree_in_nwk.png)
 
 #### 2.2 ultrametric tree in nwk format
