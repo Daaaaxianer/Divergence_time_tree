@@ -83,8 +83,8 @@ outfile = out
 ```bash
 vi mcmctree.ctl
 #          seed = -1
-       seqfile = mtCDNApri123.txt
-      treefile = mtCDNApri.trees
+       seqfile = mtCDNApri123.txt ### Change to the actual file name
+      treefile = mtCDNApri.trees ### Change to the actual file name
       mcmcfile = mcmc.txt
        outfile = out.txt
 
