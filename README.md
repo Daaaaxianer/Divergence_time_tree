@@ -116,7 +116,7 @@ vi mcmctree.ctl
 ```
 ## Result
 1.FigTree1.tre
-```bash
+```
 #NEXUS
 BEGIN TREES;
 
