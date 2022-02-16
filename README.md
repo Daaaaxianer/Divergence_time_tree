@@ -116,7 +116,7 @@ vi mcmctree.ctl
 ./mcmctree mcmctree.ctl
 ```
 ## Result
-1.FigTree.tre
+### 1.FigTree.tre
 ultrametric tree of selected species
 
 ```
@@ -128,12 +128,12 @@ BEGIN TREES;
 END;
 
 ``` 
-2.Open with [Figtree](http://tree.bio.ed.ac.uk/software/figtree/) and convert to nwk format 
+### 2.Open with [Figtree](http://tree.bio.ed.ac.uk/software/figtree/) and convert to nwk format 
 
-2.1 figure of ultrametric tree
+#### 2.1 figure of ultrametric tree
 ![ultrametric tree](./ultrametric_tree_in_nwk.png)
 
-2.2 ultrametric tree in nwk format
+#### 2.2 ultrametric tree in nwk format
 ```
 (Vvinifera:1.181926,(Ccanephora:0.870088,(Slycopers:0.718614,((Ccampestri:0.034704,Caustralis:0.034704):0.364862,((Inil:0.08297,Iaquatica:0.08297):0.004822,(Ibatatas:0.041204,(Itriloba:0.038652,Itrifida:0.038652):0.002551):0.046589):0.311773):0.319049):0.151473):0.311839);
 ```
