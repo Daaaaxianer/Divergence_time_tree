@@ -5,7 +5,7 @@ Estimation of species divergence time
 1. [Orthfiner2](https://github.com/davidemms/OrthoFinder)
 2. [PAML](http://abacus.gene.ucl.ac.uk/software/paml.html) paml4.9j.tgz
 3. [Muscle](http://drive5.com/muscle/)
-4. [Biopython](https://biopython.org/) or[Biopython.cn](https://biopython-cn.readthedocs.io/zh_CN/latest/)
+4. [Biopython](https://biopython.org/) or [Biopython.cn](https://biopython-cn.readthedocs.io/zh_CN/latest/)
 
 ## Prepared file
 1.coding sequence and protein sequence of each species in fasta format
