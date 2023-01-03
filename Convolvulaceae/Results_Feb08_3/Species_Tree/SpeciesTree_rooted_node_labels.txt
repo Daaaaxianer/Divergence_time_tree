@@ -1,1 +1,0 @@
-(Vitis_vinifera:0.124147,(Coffea_canephora:0.196146,(Solanum_lycopersicum:0.195935,((Cuscuta_campestris:0.0146811,Cuscuta_australis:0.0347711)N4:0.185453,((Ipomoea_nil:0.0217926,Ipomoea_aquatica:0.0289792)N6:0.0123219,(Ipomoea_batatas:0.387199,(Ipomoea_triloba:0.00613322,Ipomoea_trifida:0.0061229)N8:0.0184493)N7:0.0245531)N5:0.0782321)N3:0.0732721)N2:0.0417202)N1:0.124147)N0;
