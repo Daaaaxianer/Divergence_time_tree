@@ -177,12 +177,13 @@ BEGIN TREES;
 
 END;
 ``` 
-### 2.Open with [Figtree](http://tree.bio.ed.ac.uk/software/figtree/) and convert to nwk format 
+### 2.Open and convert with [Figtree](http://tree.bio.ed.ac.uk/software/figtree/) and convert to nwk format 
 
 #### 2.1 figure of ultrametric tree 
-![ultrametric tree](./ultrametric_tree_in_nwk.png)
+![ultrametric tree](./FigTree.tre.png)
 
 #### 2.2 ultrametric tree in nwk format
+export as a Newick: File > Save Trees > Select 'Newick' from menu.
 ```
-(Vvinifera:1.181926,(Ccanephora:0.870088,(Slycopers:0.718614,((Ccampestri:0.034704,Caustralis:0.034704):0.364862,((Inil:0.08297,Iaquatica:0.08297):0.004822,(Ibatatas:0.041204,(Itriloba:0.038652,Itrifida:0.038652):0.002551):0.046589):0.311773):0.319049):0.151473):0.311839);
+(Vvinifera:1.182571,(Ccanephora:0.957549,((((Inil:0.144686,((Itrifida:0.051791,Itriloba:0.051791):0.027058,Ibatatas:0.078849):0.065837):0.057742,(Icairica:0.182582,Iaquatica:0.182582):0.019846):0.33459,(Ccampestri:0.121145,Caustralis:0.121145):0.415872):0.279506,(((Smelongena:0.204091,((Schacoense:0.034018,Stuberosum:0.034018):0.04875,(Spennellii:0.019273,Slycopers:0.019273):0.063495):0.121324):0.094774,Cannuum:0.298865):0.150367,((Nattenuata:0.115726,Ntabacum:0.115726):0.276721,(Paxillaris:0.109594,Pinflata:0.109594):0.282852):0.056785):0.367292):0.141026):0.225022);
 ```
