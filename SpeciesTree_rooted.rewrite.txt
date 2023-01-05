@@ -1,0 +1,5 @@
+ 20  1
+
+(Vvinifera,(Ccanephora,((((Inil,((Itrifida,Itriloba),Ibatatas)),(Icairica,Iaquatica)),(Ccampestri,Caustralis)),(((Smelongena,((Schacoense,Stuberosum),(Spennellii,Slycopers))),Cannuum),((Nattenuata,Ntabacum),(Paxillaris,Pinflata)))))'>0.724<1.049')'>1.124<1.25';
+
+//end of file
