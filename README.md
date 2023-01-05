@@ -2,87 +2,134 @@
 Estimation of species divergence time
 
 ## Dependency package
-1. [Orthfiner2](https://github.com/davidemms/OrthoFinder)
-2. [PAML](http://abacus.gene.ucl.ac.uk/software/paml.html) paml4.9j.tgz
-3. [Muscle](http://drive5.com/muscle/)
+1. [Orthfiner2](https://github.com/davidemms/OrthoFinder/releases/) example is OrthoFinder v2.5.4
+2. [PAML](https://github.com/abacus-gene/paml/releases/) example is paml4.10.6
+3. [Muscle v5](https://github.com/rcedgar/muscle/releases/) example is Muscle v5.1
 4. [Biopython](https://biopython.org/) or [Biopython.cn](https://biopython-cn.readthedocs.io/zh_CN/latest/)
 
 ## Prepared file
-1.coding sequence and protein sequence of each species in fasta format
-like example 
-
-
-## How to use
-### 1. Run orthfinder2 ([Orthfiner2 readme](https://github.com/davidemms/OrthoFinder))
+1.coding sequence of each species in fasta format in one folder
+![cds_folder_example](./cds_folder.png)
+2.protein sequence of each species in fasta format in one folder
+![protein_folder_example](./protein_folder.png)
+3.Merge all cds files into the working directory
 ```bash
-./orthofinder -f Data/
+cat cds_in_each_species/*.fa > working_directory/sol.cds.all.fa
 ```
+## How to use
+### 1. Run orthfinder2 
+Use the protein foler of the species as input to execute the orthfinder software.
+The prefix of each cds file is species identification, and the recommended suffix is fa, which is convenient for subsequent processes to read.
+
+```bash
+./orthofinder -f pep_in_each_species/
+```
+Add or remove species can be combined with-b and-f parameters, refer to the instructions for the use of orthfinder([Orthfiner2 readme](https://github.com/davidemms/OrthoFinder))
+
 ### 2.Copy useful file
+Copy useful orthfiner results(Orthogroups_SingleCopyOrthologues.txt, Orthogroups.txt and SpeciesTree_rooted.txt) to the working directory
+
 ```bash
 cp Orthogroups/Orthogroups_SingleCopyOrthologues.txt Orthogroups/Orthogroups.txt Species_Tree/SpeciesTree_rooted.txt workDirectory
 ```
 ### 3.Rewrite tree file
 Referring to the phylogenetic tree of orthofinder and the fossil time range of [Timetree](http://www.timetree.org/), rewrite the tree file
-#### 3.1 check the tree of orthofinder
+
+#### 3.1 check and the tree of orthofinder
+View and preprocess the tree of orthofinder
+
+**check tree file**
 ```bash
 cat  SpeciesTree_rooted.txt
-#(Vitis_vinifera:0.124147,(Coffea_canephora:0.196146,(Solanum_lycopersicum:0.195935,((Cuscuta_campestris:0.0146811,Cuscuta_australis:0.0347711)0.949219:0.185453,((Ipomoea_nil:0.0217926,Ipomoea_aquatica:0.0289792)0.253723:0.0123219,(Ipomoea_batatas:0.387199,(Ipomoea_triloba:0.00613322,Ipomoea_trifida:0.0061229)0.421138:0.0184493)0.440876:0.0245531)0.718464:0.0782321)0.78037:0.0732721)0.65297:0.0417202)1:0.124147);
+```
+```bash
+(Vitis_vinifera:0.124147,(Coffea_canephora:0.196146,(Solanum_lycopersicum:0.195935,((Cuscuta_campestris:0.0146811,Cuscuta_australis:0.0347711)0.949219:0.185453,((Ipomoea_nil:0.0217926,Ipomoea_aquatica:0.0289792)0.253723:0.0123219,(Ipomoea_batatas:0.387199,(Ipomoea_triloba:0.00613322,Ipomoea_trifida:0.0061229)0.421138:0.0184493)0.440876:0.0245531)0.718464:0.0782321)0.78037:0.0732721)0.65297:0.0417202)1:0.124147);
+```
+
+**pre-processing tree file**
+```bash
+python SpeciesTree_rooted.txt SpeciesTree_rooted.rewrite.txt
+```
+```bash
+cat  SpeciesTree_rooted.rewrite.txt
+```
+```bash
+(Vvinifera,(Ccanephora,((((Inil,((Itrifida,Itriloba),Ibatatas)),(Icairica,Iaquatica)),(Ccampestri,Caustralis)),(((Smelongena,((Schacoense,Stuberosum),(Spennellii,Slycopers))),Cannuum),((Nattenuata,Ntabacum),(Paxillaris,Pinflata))))));
 ```
 #### 3.2 reconstituted species tree
 Remember to change the species name to less than 10 characters
 ```bash
-vi treefile
-# 10  1
-
-#(Vvinifera, (Ccanephora , (Slycopers, ((Ccampestri, Caustralis)((Inil, Iaquatica), (Ibatatas, (Itriloba, Itrifida)))))));
+vi SpeciesTree_rooted.rewrite.txt
 ```
-#### 3.3 time search in [Timetree](http://www.timetree.org/) and reconstituted species tree
-![Coffea_canephora_Solanum_lycopersicum_timetree](./Coffea_canephora_vs_Solanum_lycopersicum_timetree.png)
-
-![Vitis vinifera_Coffea_canephora_timetree.png](./Vitis_vinifera_vs_Coffea_canephora_timetree.png)
-
 ```bash
-vi treefile
-#6 1
-# 10  1
+ 20  1
 
-#(Vvinifera, (Ccanephora , (Slycopers, ((Ccampestri, Caustralis)((Inil, Iaquatica), (Ibatatas, (Itriloba, Itrifida))))))'>0.79<0.91')'>1.11<1.31';
+(Vvinifera,(Ccanephora,((((Inil,((Itrifida,Itriloba),Ibatatas)),(Icairica,Iaquatica)),(Ccampestri,Caustralis)),(((Smelongena,((Schacoense,Stuberosum),(Spennellii,Slycopers))),Cannuum),((Nattenuata,Ntabacum),(Paxillaris,Pinflata))))));
 ```
-### 4.Filter Single Copy Sequence
-```python
-python filterSingleCopySequence.py
-```
-### 5.Rename Single Copy Sequence
-Modify the single copy gene name to be consistent with the name in the species
-```python
-python batchFileRename.py
-```
-### 6.Batch multiple sequence alignment
-```python
-python batchFile2Phy.py
-```
-### 7.Convert phylip alignmnet
-Convert the FASTA format of multi sequence alignment into the phylip sequential format recognized by PAML
-```python
-python phylipConvert.py
-```
-### 8.Delete stop codon
-Delete the stop codon in the sequence
-```python
-python deleteStopCodon.py
-```
-### 9.Run paml mcmctree
-#### 9.1 Configure 'mcmctree.ctl' file
-```
-vi mcmctree.ctl
+20 and 1 represent the number of species and trees, respectively
 
+#### 3.3 time search in [Timetree](http://www.timetree.org/) and reconstituted species tree
+
+**Query the existing fossil time**
+
+The divergence time between Coffea canephora and Solanum lycopersicum is about 72.4-104.9mya.
+![Coffea_canephora_Solanum_lycopersicum_timetree](./timetree_Coffea_canephora_vs_Solanum_Lycopersicum.png)
+
+The divergence time between Coffea canephora and Solanum lycopersicum is about 112.4-125.0mya.
+![Vitis vinifera_Coffea_canephora_timetree.png](./timetree_Vitis_Vinifera_vs_Coffea_canephora.png)
+
+**Add calibration time to tree file**
+```bash
+vi SpeciesTree_rooted.rewrite.txt
+```
+```bash
+ 20  1
+
+(Vvinifera,(Ccanephora,((((Inil,((Itrifida,Itriloba),Ibatatas)),(Icairica,Iaquatica)),(Ccampestri,Caustralis)),(((Smelongena,((Schacoense,Stuberosum),(Spennellii,Slycopers))),Cannuum),((Nattenuata,Ntabacum),(Paxillaris,Pinflata)))))'>0.724<1.049')'>1.124<1.25';
+
+//end of file
+```
+### 4.Perform extraction and alignment of single-copy gene sequences
+**View script help**
+```python
+python singleCopyAlign2paml_workflow.py -h
+```
+```bash
+usage: extractSingleCopySequence.py [-h] oscgroups ogroups allcds
+
+用途：提取Orthogroups.txt中的单拷贝基因序列，并对每组单拷贝基因进行序列比对。
+
+positional arguments:
+  oscgroups   Orthfinder resulte file: "Orthogroups_SingleCopyOrthologues.txt" (type = str)
+  ogroups     Orthfinder resulte file: "Orthogroups.txt" (type = str)
+  allcds      a merged coding squence file of all used species (type = str)
+
+optional arguments:
+  -h, --help  show this help message and exit
+```
+
+**Execute script**
+```python
+python singleCopyAlign2paml_workflow.py Orthogroups_SingleCopyOrthologues.txt Orthogroups.txt sol.cds.all.fa
+```
+This script is equivalent to using the following script in turn:
+> extractSingleCopySequence.py --> batchId2Spname.py --> batchSeqAlign.py --> fasAlign2phy.py -->delStopCodon.py
+Use the-h parameter to understand how to use it.
+
+### 5.Run paml mcmctree
+#### 5.1 Configure 'mcmctree.ctl' file
+```bash
+cp mcmctree.ctl sol.mcmctree.ctl
+vi sol.mcmctree.ctl
+```
+```bash
           seed = -1
-       seqfile = mtCDNApri123.txt ### Change to the actual file name
-      treefile = mtCDNApri.trees ### Change to the actual file name
+       seqfile = mtCDNApri123.txt ### Change to the alignment file name: all.delStopCodon.phys
+      treefile = mtCDNApri.trees ### Change to the tree file name: SpeciesTree_rooted.rewrite.txt
       mcmcfile = mcmc.txt
        outfile = out.txt
 
-         ndata = 3
+         ndata = 2    ### chang to alignment number,this example is 2
        seqtype = 0    * 0: nucleotides; 1:codons; 2:AAs
        usedata = 1    * 0: no data; 1:seq like; 2:normal approximation; 3:out.BV (in.BV)
          clock = 2    * 1: global clock; 2: independent rates; 3: correlated rates
@@ -111,22 +158,24 @@ vi mcmctree.ctl
 *** Note: Make your window wider (100 columns) before running the program.
 
 ```
-#### 9.2 run mcmctree
+#### 5.2 run mcmctree in paml
 ```bash
-./mcmctree mcmctree.ctl
+mcmctree sol.mcmctree.ctl
 ```
 ## Result
 ### 1.FigTree.tre
 ultrametric tree of selected species（The time standard is 100 million years）
 
+```bash
+vi FigTree.tre
 ```
+```bash
 #NEXUS
 BEGIN TREES;
 
-	UTREE 1 = (Vvinifera: 1.181926, (Ccanephora: 0.870088, (Slycopers: 0.718614, ((Ccampestri: 0.034704, Caustralis: 0.034704) [&95%HPD={0.014307, 0.0578108}]: 0.364862, ((Inil: 0.082970, Iaquatica: 0.082970) [&95%HPD={0.0473958, 0.125509}]: 0.004822, (Ibatatas: 0.041204, (Itriloba: 0.038652, Itrifida: 0.038652) [&95%HPD={0.0207573, 0.0604043}]: 0.002551) [&95%HPD={0.0227154, 0.0636135}]: 0.046589) [&95%HPD={0.0525574, 0.130633}]: 0.311773) [&95%HPD={0.27958, 0.519542}]: 0.319049) [&95%HPD={0.609845, 0.823407}]: 0.151473) [&95%HPD={0.802348, 0.915719}]: 0.311839) [&95%HPD={1.10291, 1.29469}];
+	UTREE 1 = (Vvinifera: 1.182571, (Ccanephora: 0.957549, ((((Inil: 0.144686, ((Itrifida: 0.051791, Itriloba: 0.051791) [&95%HPD={0.0180103, 0.0907333}]: 0.027058, Ibatatas: 0.078849) [&95%HPD={0.0342785, 0.127052}]: 0.065837) [&95%HPD={0.0765007, 0.224146}]: 0.057742, (Icairica: 0.182582, Iaquatica: 0.182582) [&95%HPD={0.092973, 0.282555}]: 0.019846) [&95%HPD={0.112743, 0.30083}]: 0.334590, (Ccampestri: 0.121145, Caustralis: 0.121145) [&95%HPD={0.037339, 0.218144}]: 0.415872) [&95%HPD={0.368526, 0.701565}]: 0.279506, (((Smelongena: 0.204091, ((Schacoense: 0.034018, Stuberosum: 0.034018) [&95%HPD={0.0081394, 0.0673773}]: 0.048750, (Spennellii: 0.019273, Slycopers: 0.019273) [&95%HPD={0.0033041, 0.0397274}]: 0.063495) [&95%HPD={0.038023, 0.136205}]: 0.121324) [&95%HPD={0.113544, 0.305304}]: 0.094774, Cannuum: 0.298865) [&95%HPD={0.178539, 0.422947}]: 0.150367, ((Nattenuata: 0.115726, Ntabacum: 0.115726) [&95%HPD={0.0393255, 0.212033}]: 0.276721, (Paxillaris: 0.109594, Pinflata: 0.109594) [&95%HPD={0.0401356, 0.193081}]: 0.282852) [&95%HPD={0.244036, 0.546504}]: 0.056785) [&95%HPD={0.302158, 0.609576}]: 0.367292) [&95%HPD={0.652822, 0.961443}]: 0.141026) [&95%HPD={0.794656, 1.06636}]: 0.225022) [&95%HPD={1.12196, 1.24766}];
 
 END;
-
 ``` 
 ### 2.Open with [Figtree](http://tree.bio.ed.ac.uk/software/figtree/) and convert to nwk format 
 
