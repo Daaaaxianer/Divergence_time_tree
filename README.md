@@ -73,10 +73,10 @@ vi SpeciesTree_rooted.rewrite.txt
 **Query the existing fossil time**
 
 The divergence time between Coffea canephora and Solanum lycopersicum is about 72.4-104.9mya.
-![Coffea_canephora_Solanum_lycopersicum_timetree](/timetree_Coffea_canephora_vs_Solanum_Lycopersicum.png)
+![Coffea_canephora_Solanum_lycopersicum_timetree](timetree_Coffea_canephora_vs_Solanum_Lycopersicum.png)
 
 The divergence time between Coffea canephora and Solanum lycopersicum is about 112.4-125.0mya.
-![Vitis vinifera_Coffea_canephora_timetree.png](/timetree_Vitis_Vinifera_vs_Coffea_canephora.png)
+![Vitis vinifera_Coffea_canephora_timetree.png](timetree_Vitis_Vinifera_vs_Coffea_canephora.png)
 
 **Add calibration time to tree file**
 ```bash
