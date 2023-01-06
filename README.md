@@ -90,7 +90,7 @@ vi SpeciesTree_rooted.rewrite.txt
 //end of file
 ```
 ### 4.Perform extraction and alignment of single-copy gene sequences
-**View script help**
+**4.1 View script help**
 ```python
 python singleCopyAlign2paml_workflow.py -h
 ```
@@ -108,7 +108,7 @@ optional arguments:
   -h, --help  show this help message and exit
 ```
 
-**Execute script**
+**4.2 Execute script**
 ```python
 python singleCopyAlign2paml_workflow.py Orthogroups_SingleCopyOrthologues.txt Orthogroups.txt sol.cds.all.fa
 ```
