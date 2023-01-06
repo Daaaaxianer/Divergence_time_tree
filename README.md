@@ -200,12 +200,12 @@ With a little modification, the above results can be used in the input file of [
 >             * Which gene families are rapidly evolving
 >             * The branches of the tree on which these families are rapidly evolving
 
-** 1. Modify the Orthogroups.GeneCount.tsv file of OrthoFinder to generate a gene family count file that meets the requirements of CAFE5.**
+**1. Modify the Orthogroups.GeneCount.tsv file of OrthoFinder to generate a gene family count file that meets the requirements of CAFE5.**
 
 ```bash
 awk 'OFS="\t" {$NF=""; print}' Orthogroups.GeneCount.tsv > tmp && awk '{print "(null)""\t"$0}' tmp > cafe.input.tsv && sed -i '1s/(null)/Desc/g' cafe.input.tsv && rm tmp
 ```
-** 2. After that, it is necessary to eliminate the gene families with excessive copy number differences between different species, otherwise an error will be reported. 
+**2. After that, it is necessary to eliminate the gene families with excessive copy number differences between different species, otherwise an error will be reported. 
 CAFE5 has built-in scripts to use, and sometimes you need to remove the first line before you run it.**
 
 ```python
@@ -213,10 +213,10 @@ python ~/soft/CAFE5/tutorial/clade_and_size_filter.py -i cafe.input.tsv -o gene_
 ```
 Refer to the example of CAFE5: mammal_gene_families.txt
 
-** 3. ultrametric tree in Newick format.**
+**3. ultrametric tree in Newick format.**
  The previously generated tree can be used directly as the second input file
  
-** 4. Run Cafe5**
+**4. Run Cafe5**
 ```bash
 cafe5 -i gene_family_filter.txt -t FigTree.tre.nwk -o out
 ```
