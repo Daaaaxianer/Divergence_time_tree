@@ -116,7 +116,7 @@ This script is equivalent to using the following script in turn:
 
 > extractSingleCopySequence.py --> batchId2Spname.py --> batchSeqAlign.py --> fasAlign2phy.py -->delStopCodon.py
 
-Use the-h parameter to understand how to use it.
+Use the -h parameter to understand how to use it.
 
 ### 5.Run paml mcmctree
 #### 5.1 Configure 'mcmctree.ctl' file
