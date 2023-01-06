@@ -216,6 +216,7 @@ Refer to the example of CAFE5: mammal_gene_families.txt
 cafe5 -i gene_family_filter.txt -t FigTree.tre.nwk -o out
 ```
 Cafe5 uses the Base model by default, and you can use the Gamma model with the-k parameter.
+
 For the parameter settings and the meaning of the results, please read the [CAFE5](https://github.com/hahnlab/CAFE5) documentation in detail.
 
 **Note1:** Well, this small process is equivalent to [2.Preparing the input](https://github.com/hahnlab/CAFE5/blob/master/docs/tutorial/tutorial.md) in cafe5, but it's a little easier to operate.
