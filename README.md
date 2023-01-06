@@ -1,13 +1,13 @@
 # Divergence_time_tree（ultrametric tree）
 Estimation of species divergence time
 
-## Dependency package
+## * Dependency package
 1. [Orthfiner2](https://github.com/davidemms/OrthoFinder/releases/) example is OrthoFinder v2.5.4
 2. [PAML](https://github.com/abacus-gene/paml/releases/) example is paml4.10.6
 3. [Muscle v5](https://github.com/rcedgar/muscle/releases/) example is Muscle v5.1
 4. [Biopython](https://biopython.org/) or [Biopython.cn](https://biopython-cn.readthedocs.io/zh_CN/latest/)
 
-## Prepared file
+## * Prepared file
 1.coding sequence of each species in fasta format in one folder
 ![cds_folder_example](./cds_folder.png)
 2.protein sequence of each species in fasta format in one folder
