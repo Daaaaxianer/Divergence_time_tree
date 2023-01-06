@@ -166,7 +166,7 @@ mcmctree sol.mcmctree.ctl
 ```
 ## Result
 ### 1.FigTree.tre
-ultrametric tree of selected species（The time standard is 100 million years）
+ultrametric tree of selected species in NEXUS format（The time standard is 100 million years）
 
 ```bash
 vi FigTree.tre
