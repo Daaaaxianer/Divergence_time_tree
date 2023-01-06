@@ -187,3 +187,33 @@ export as a Newick: File > Save Trees > Select 'Newick' from menu.
 ```
 (Vvinifera:1.182571,(Ccanephora:0.957549,((((Inil:0.144686,((Itrifida:0.051791,Itriloba:0.051791):0.027058,Ibatatas:0.078849):0.065837):0.057742,(Icairica:0.182582,Iaquatica:0.182582):0.019846):0.33459,(Ccampestri:0.121145,Caustralis:0.121145):0.415872):0.279506,(((Smelongena:0.204091,((Schacoense:0.034018,Stuberosum:0.034018):0.04875,(Spennellii:0.019273,Slycopers:0.019273):0.063495):0.121324):0.094774,Cannuum:0.298865):0.150367,((Nattenuata:0.115726,Ntabacum:0.115726):0.276721,(Paxillaris:0.109594,Pinflata:0.109594):0.282852):0.056785):0.367292):0.141026):0.225022);
 ```
+## Follow-up analysis
+With a little modification, the above results can be used in the input file of [CAFE5](https://github.com/hahnlab/CAFE5).
+> For a typical CAFE analysis, users are most interested in determining two things:
+>             * Which gene families are rapidly evolving
+>             * The branches of the tree on which these families are rapidly evolving
+
+1. Modify the Orthogroups.GeneCount.tsv file of OrthoFinder to generate a gene family count file that meets the requirements of CAFE5.
+
+```bash
+awk 'OFS="\t" {$NF=""; print}' Orthogroups.GeneCount.tsv > tmp && awk '{print "(null)""\t"$0}' tmp > cafe.input.tsv && sed -i '1s/(null)/Desc/g' cafe.input.tsv && rm tmp
+```
+2. After that, it is necessary to eliminate the gene families with excessive copy number differences between different species, otherwise an error will be reported. 
+CAFE5 has built-in scripts to use, and sometimes you need to remove the first line before you run it.
+
+```python
+python ~/soft/CAFE5/tutorial/clade_and_size_filter.py -i cafe.input.tsv -o gene_family_filter.txt -s 
+```
+Refer to the example of CAFE5: mammal_gene_families.txt
+
+3. ultrametric tree in Newick format.
+ The previously generated tree can be used directly as the second input file
+ 
+4. Run Cafe5
+```bash
+cafe5 -i gene_family_filter.txt -t FigTree.tre.nwk -o out
+```
+Cafe5 uses the Base model by default, and you can use the Gamma model with the-k parameter.
+For the parameter settings and the meaning of the results, please read the [CAFE5](https://github.com/hahnlab/CAFE5) documentation in detail.
+
+### Well, this small process is equivalent to [2.Preparing the input](https://github.com/hahnlab/CAFE5/blob/master/docs/tutorial/tutorial.md) in cafe5, but it's a little easier to operate.
