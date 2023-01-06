@@ -35,7 +35,7 @@ cp Orthogroups/Orthogroups_SingleCopyOrthologues.txt Orthogroups/Orthogroups.txt
 ### 3.Rewrite tree file
 Referring to the phylogenetic tree of orthofinder and the fossil time range of [Timetree](http://www.timetree.org/), rewrite the tree file
 
-#### 3.1 check and the tree of orthofinder
+#### 3.1 check and preprocess the tree of orthfinder
 View and preprocess the tree of orthofinder
 
 **3.1.1 check tree file**
