@@ -48,7 +48,7 @@ cat  SpeciesTree_rooted.txt
 
 **pre-processing tree file**
 ```bash
-python SpeciesTree_rooted.txt SpeciesTree_rooted.rewrite.txt
+python phyTree.py -c SpeciesTree_rooted.txt SpeciesTree_rooted.rewrite.txt
 ```
 ```bash
 cat  SpeciesTree_rooted.rewrite.txt
