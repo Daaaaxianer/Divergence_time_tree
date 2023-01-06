@@ -213,7 +213,7 @@ python ~/soft/CAFE5/tutorial/clade_and_size_filter.py -i cafe.input.tsv -o gene_
 ```
 Refer to the example of CAFE5: mammal_gene_families.txt
 
-**3. ultrametric tree in Newick format.**
+**3. Ultrametric tree in Newick format.**
  The previously generated tree can be used directly as the second input file
  
 **4. Run Cafe5**
