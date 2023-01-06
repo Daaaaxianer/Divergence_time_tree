@@ -113,7 +113,9 @@ optional arguments:
 python singleCopyAlign2paml_workflow.py Orthogroups_SingleCopyOrthologues.txt Orthogroups.txt sol.cds.all.fa
 ```
 This script is equivalent to using the following script in turn:
+
 > extractSingleCopySequence.py --> batchId2Spname.py --> batchSeqAlign.py --> fasAlign2phy.py -->delStopCodon.py
+
 Use the-h parameter to understand how to use it.
 
 ### 5.Run paml mcmctree
