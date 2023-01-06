@@ -12,9 +12,9 @@ Estimation of species divergence time
 ![cds_folder_example](./cds_folder.png)
 2.protein sequence of each species in fasta format in one folder
 ![protein_folder_example](./protein_folder.png)
-3.Merge all cds files into the working directory
+3.Merge all cds files into the your_working directory
 ```bash
-cat cds_in_each_species/*.fa > working_directory/sol.cds.all.fa
+cat cds_in_each_species/*.fa > your_working_directory/sol.cds.all.fa
 ```
 ## * How to use
 ### 1. Run orthfinder2 
