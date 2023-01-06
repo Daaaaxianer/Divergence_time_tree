@@ -220,6 +220,6 @@ For the parameter settings and the meaning of the results, please read the [CAFE
 
 **Note1:** Well, this small process is equivalent to [2.Preparing the input](https://github.com/hahnlab/CAFE5/blob/master/docs/tutorial/tutorial.md) in cafe5, but it's a little easier to operate.
 
-**Note2:** The four parts of the files or folders in the process are not provided in this github directory, namely:
+**Note2:** There are four parts of the files or folders in the process are not provided in this github directory, namely:
 ./cds_in_each_species, ./pep_in_each_species, sol.cds.all.fa and OrthoFinder result directory. 
 The reason is that I can't upload large files successfully.
