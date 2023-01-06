@@ -225,5 +225,5 @@ For the parameter settings and the meaning of the results, please read the [CAFE
 ./cds_in_each_species, ./pep_in_each_species, sol.cds.all.fa and OrthoFinder result directory. 
 The reason is that I can't upload large files successfully.
 
-**Note3:** This is a problem showing the results of CAFE5, because [CAFE_fig](https://github.com/LKremer/CAFE_fig) is no longer available for CAF5 and can only be used for older versions of CAFE. 
+**Note3:** This is a problem showing the results of CAFE5, because [CAFE_fig](https://github.com/LKremer/CAFE_fig) is no longer available for CAFE5 and can only be used for older versions of CAFE. 
 If I have time later, I will modify the script to make it easy to use.. 
