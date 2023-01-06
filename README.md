@@ -38,7 +38,7 @@ Referring to the phylogenetic tree of orthofinder and the fossil time range of [
 #### 3.1 check and the tree of orthofinder
 View and preprocess the tree of orthofinder
 
-**check tree file**
+**3.1.1 check tree file**
 ```bash
 cat  SpeciesTree_rooted.txt
 ```
@@ -46,7 +46,7 @@ cat  SpeciesTree_rooted.txt
 (Vitis_vinifera:0.124147,(Coffea_canephora:0.196146,(Solanum_lycopersicum:0.195935,((Cuscuta_campestris:0.0146811,Cuscuta_australis:0.0347711)0.949219:0.185453,((Ipomoea_nil:0.0217926,Ipomoea_aquatica:0.0289792)0.253723:0.0123219,(Ipomoea_batatas:0.387199,(Ipomoea_triloba:0.00613322,Ipomoea_trifida:0.0061229)0.421138:0.0184493)0.440876:0.0245531)0.718464:0.0782321)0.78037:0.0732721)0.65297:0.0417202)1:0.124147);
 ```
 
-**pre-processing tree file**
+**3.1.2 pre-processing tree file**
 ```bash
 python phyTree.py -c SpeciesTree_rooted.txt SpeciesTree_rooted.rewrite.txt
 ```
@@ -70,7 +70,7 @@ vi SpeciesTree_rooted.rewrite.txt
 
 #### 3.3 time search in [Timetree](http://www.timetree.org/) and reconstituted species tree
 
-**Query the existing fossil time**
+**3.3.1 Query the existing fossil time**
 
 The divergence time between Coffea canephora and Solanum lycopersicum is about 72.4-104.9mya.
 ![Coffea_canephora_Solanum_lycopersicum_timetree](timetree_Coffea_canephora_vs_Solanum_Lycopersicum.png)
@@ -78,7 +78,7 @@ The divergence time between Coffea canephora and Solanum lycopersicum is about 7
 The divergence time between Coffea canephora and Solanum lycopersicum is about 112.4-125.0mya.
 ![Vitis vinifera_Coffea_canephora_timetree.png](timetree_Vitis_Vinifera_vs_Coffea_canephora.png)
 
-**Add calibration time to tree file**
+**3.3.2 Add calibration time to tree file**
 ```bash
 vi SpeciesTree_rooted.rewrite.txt
 ```
