@@ -196,8 +196,11 @@ cat FigTree.tre.nwk
 ```
 ## * Follow-up analysis
 With a little modification, the above results can be used in the input file of [CAFE5](https://github.com/hahnlab/CAFE5).
+
 > For a typical CAFE analysis, users are most interested in determining two things:
+> 
 >             * Which gene families are rapidly evolving
+> 
 >             * The branches of the tree on which these families are rapidly evolving
 
 **1. Modify the Orthogroups.GeneCount.tsv file of OrthoFinder to generate a gene family count file that meets the requirements of CAFE5.**
