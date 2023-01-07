@@ -195,7 +195,7 @@ cat FigTree.tre.nwk
 (Vvinifera:1.182571,(Ccanephora:0.957549,((((Inil:0.144686,((Itrifida:0.051791,Itriloba:0.051791):0.027058,Ibatatas:0.078849):0.065837):0.057742,(Icairica:0.182582,Iaquatica:0.182582):0.019846):0.33459,(Ccampestri:0.121145,Caustralis:0.121145):0.415872):0.279506,(((Smelongena:0.204091,((Schacoense:0.034018,Stuberosum:0.034018):0.04875,(Spennellii:0.019273,Slycopers:0.019273):0.063495):0.121324):0.094774,Cannuum:0.298865):0.150367,((Nattenuata:0.115726,Ntabacum:0.115726):0.276721,(Paxillaris:0.109594,Pinflata:0.109594):0.282852):0.056785):0.367292):0.141026):0.225022);
 ```
 ## * Follow-up analysis
-With a little modification, the above results can be used in the input file of [Cafe](https://github.com/hahnlab/CAFE) and [CAFE5](https://github.com/hahnlab/CAFE5).
+With a little modification, the above results can be used in the input file of [CAFE](https://github.com/hahnlab/CAFE) and [CAFE5](https://github.com/hahnlab/CAFE5).
 
 > For a typical CAFE analysis, users are most interested in determining two things:
 > 
