@@ -239,7 +239,8 @@ cp ~soft/CAFE/example/cafe_script2.sh your_working_directory/cafe_script_sol.sh
 
 ```bash
 vi cafe_script_sol.sh
-
+```
+```bash
 #!shell
 date
 version
@@ -261,7 +262,9 @@ report report.txt
 
 ```bash
 vi cafe_script_sol.sh
+```
 
+```bash
 #!shell
 date
 
