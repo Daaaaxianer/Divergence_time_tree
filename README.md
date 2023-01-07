@@ -335,6 +335,8 @@ The results of CAFE can be displayed through [**CAFE_fig**](https://github.com/L
 CAFE_fig requires Python3.4+ and ETE3: Install ETE3 with
 ```bash
 pip3 install 'ete3==3.0.0b35'
+or
+pip3 install 'ete3==3.1.2'
 ```
 ```bash
 python CAFE_fig.py sol_cafe_out.cafe -pb 0.01 -pf 0.01 --dump test -g pdf 
