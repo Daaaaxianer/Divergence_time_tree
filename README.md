@@ -214,7 +214,9 @@ CAFE5 has built-in scripts to use, and sometimes you need to remove the first li
 ```python
 python ~/soft/CAFE5/tutorial/clade_and_size_filter.py -i cafe.input.tsv -o gene_family_filter.txt -s 
 ```
-Refer to the example of CAFE5: mammal_gene_families.txt
+The output should be two CAFE input files, one for gene families with < 100 gene copies in all species(gene_family_filter.txt), another for the remaining gene families(large_gene_family_filter.txt). 
+The first file should be used to estimate parameter values, and these values should then be used to analyse the second file.
+Refer to the cafetutorial_clade_and_size_filter.py of [cafe_tutorial](https://github.com/hahnlab/cafe_tutorial/blob/main/python_scripts/cafetutorial_clade_and_size_filter.py)
 
 **3. Ultrametric tree in Newick format.**
 The time of the previous Ultrametric tree needs to be multiplied by 100, so the time base becomes MYA, which can be directly used as the second input file.
@@ -264,7 +266,7 @@ vi cafe_script_sol.sh
 date
 
 #specify data file, p-value threshold, # of threads to use, and log file
-load -i cafe.input.tsv -p 0.01 -t 10 -l log.txt
+load -i gene_family_filter.txt -p 0.01 -t 10 -l log.txt
 
 #the phylogenetic tree structure with branch lengths
 tree (Vvinifera:118.257,(Ccanephora:95.7549,((((Inil:14.4686,((Itrifida:5.1791,Itriloba:5.1791):2.7058,Ibatatas:7.8849):6.5837):5.7742,(Icairica:18.2582,Iaquatica:18.2582):1.9846):33.459,(Ccampestri:12.1145,Caustralis:12.1145):41.5872):27.9506,(((Smelongena:20.4091,((Schacoense:3.4018,Stuberosum:3.4018):4.875,(Spennellii:1.9273,Slycopers:1.9273):6.3495):12.1324):9.4774,Cannuum:29.8865):15.0367,((Nattenuata:11.5726,Ntabacum:11.5726):27.6721,(Paxillaris:10.9594,Pinflata:10.9594):28.2852):5.6785):36.7292):14.1026):22.5022)
