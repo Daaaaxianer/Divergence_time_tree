@@ -221,6 +221,9 @@ The time of the previous Ultrametric tree needs to be multiplied by 100, so the 
 ```bash
 sed 's/\([),]\)/\n\1/g' FigTree.tre.nwk | awk -F ":" '{if($2~/[0-9]/){printf $1":"$2*100}else{print $0}}'
 ```
+```bash
+(Vvinifera:118.257,(Ccanephora:95.7549,((((Inil:14.4686,((Itrifida:5.1791,Itriloba:5.1791):2.7058,Ibatatas:7.8849):6.5837):5.7742,(Icairica:18.2582,Iaquatica:18.2582):1.9846):33.459,(Ccampestri:12.1145,Caustralis:12.1145):41.5872):27.9506,(((Smelongena:20.4091,((Schacoense:3.4018,Stuberosum:3.4018):4.875,(Spennellii:1.9273,Slycopers:1.9273):6.3495):12.1324):9.4774,Cannuum:29.8865):15.0367,((Nattenuata:11.5726,Ntabacum:11.5726):27.6721,(Paxillaris:10.9594,Pinflata:10.9594):28.2852):5.6785):36.7292):14.1026):22.5022);
+```
 
 **4. Run Cafe5**
 ```bash
