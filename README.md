@@ -225,7 +225,79 @@ sed 's/\([),]\)/\n\1/g' FigTree.tre.nwk | awk -F ":" '{if($2~/[0-9]/){printf $1"
 (Vvinifera:118.257,(Ccanephora:95.7549,((((Inil:14.4686,((Itrifida:5.1791,Itriloba:5.1791):2.7058,Ibatatas:7.8849):6.5837):5.7742,(Icairica:18.2582,Iaquatica:18.2582):1.9846):33.459,(Ccampestri:12.1145,Caustralis:12.1145):41.5872):27.9506,(((Smelongena:20.4091,((Schacoense:3.4018,Stuberosum:3.4018):4.875,(Spennellii:1.9273,Slycopers:1.9273):6.3495):12.1324):9.4774,Cannuum:29.8865):15.0367,((Nattenuata:11.5726,Ntabacum:11.5726):27.6721,(Paxillaris:10.9594,Pinflata:10.9594):28.2852):5.6785):36.7292):14.1026):22.5022);
 ```
 
-**4. Run Cafe5**
+**4. Run CAFE
+**4.1 Copy and rename the shell script for cafe
+
+```bash
+cp ~soft/CAFE/example/cafe_script2.sh your_working_directory/cafe_script_sol.sh
+```
+**4.2 Modify the shell script
+
+**Before modify
+
+```bash
+vi cafe_script_sol.sh
+
+#!shell
+date
+version
+
+#specify data file, p-value threshold, # of threads to use, and log file
+load -i example_data.tab -p 0.01 -t 10 -l log.txt
+
+#the phylogenetic tree structure with branch lengths
+tree (((chimp:6,human:6):81,(mouse:17,rat:17):70):6,dog:93)
+
+#search for 2 parameter model
+lambda -s -t (((2,2)1,(1,1)1)1,1)
+
+# generate a report
+report report.txt
+```
+
+## After modify
+
+```bash
+vi cafe_script_sol.sh
+
+#!shell
+date
+
+#specify data file, p-value threshold, # of threads to use, and log file
+load -i cafe.input.tsv -p 0.01 -t 10 -l log.txt
+
+#the phylogenetic tree structure with branch lengths
+tree (Vvinifera:118.257,(Ccanephora:95.7549,((((Inil:14.4686,((Itrifida:5.1791,Itriloba:5.1791):2.7058,Ibatatas:7.8849):6.5837):5.7742,(Icairica:18.2582,Iaquatica:18.2582):1.9846):33.459,(Ccampestri:12.1145,Caustralis:12.1145):41.5872):27.9506,(((Smelongena:20.4091,((Schacoense:3.4018,Stuberosum:3.4018):4.875,(Spennellii:1.9273,Slycopers:1.9273):6.3495):12.1324):9.4774,Cannuum:29.8865):15.0367,((Nattenuata:11.5726,Ntabacum:11.5726):27.6721,(Paxillaris:10.9594,Pinflata:10.9594):28.2852):5.6785):36.7292):14.1026):22.5022)
+
+#
+lambda -s
+
+#search for 2 parameter model
+#lambda -s -t (((2,2)1,(1,1)1)1,1)
+
+#specify the global lambda to for generating simulated data
+#lambda -l 0.0017
+
+#generate 10 simulated data sets
+#genfamily rndtree/rnd -t 10
+
+#estimate lambdas and compare likelihoods of global lambda and 2-parameter models
+#lhtest -d rndtree -l 0.0017 -t (((2,2)1,(1,1)1)1,1) -o lh2.out
+
+# report output
+report sol_cafe_out
+
+date
+```
+
+**4.3 Execute cafe
+
+```bash
+/home/xian/soft/CAFE/release/cafe cafe_script_sol.sh
+```
+For the parameter settings and the meaning of the results, please read the [CAFE](https://github.com/hahnlab/CAFE) documentation in detail.
+
+**5. Run Cafe5**
 ```bash
 cafe5 -i gene_family_filter.txt -t FigTree.tre.nwk -o out
 ```
