@@ -208,8 +208,10 @@ With a little modification, the above results can be used in the input file of [
 ```bash
 awk 'OFS="\t" {$NF=""; print}' Orthogroups.GeneCount.tsv > tmp && awk '{print "(null)""\t"$0}' tmp > cafe.input.tsv && sed -i '1s/(null)/Desc/g' cafe.input.tsv && rm tmp
 ```
-**2. After that, it is necessary to eliminate the gene families with excessive copy number differences between different species, otherwise an error will be reported. 
-CAFE5 has built-in scripts to use, and sometimes you need to remove the first line before you run it.**
+**2.Filtering exception family **
+
+After that, it is necessary to eliminate the gene families with excessive copy number differences between different species, otherwise an error will be reported. 
+CAFE5 has built-in scripts to use, and sometimes you need to remove the first line before you run it.
 
 ```python
 python ~/soft/CAFE5/tutorial/clade_and_size_filter.py -i cafe.input.tsv -o gene_family_filter.txt -s 
@@ -219,7 +221,9 @@ The first file should be used to estimate parameter values, and these values sho
 Refer to the cafetutorial_clade_and_size_filter.py of [cafe_tutorial](https://github.com/hahnlab/cafe_tutorial/blob/main/python_scripts/cafetutorial_clade_and_size_filter.py)
 
 **3. Ultrametric tree in Newick format.**
+
 The time of the previous Ultrametric tree needs to be multiplied by 100, so the time base becomes MYA, which can be directly used as the second input file.
+
 ```bash
 sed 's/\([),]\)/\n\1/g' FigTree.tre.nwk | awk -F ":" '{if($2~/[0-9]/){printf $1":"$2*100}else{print $0}}'
 ```
@@ -313,11 +317,14 @@ python cafetutorial_report_analysis.py -i sol_cafe_out.cafe -o sol_cafe_out.summ
 As a result, four files appear, all prefixed with the value of the-o parameter.
 * sol_cafe_out.summary_anc.txt   
 每个家族在每个节点变化(扩张/收缩)的数量. The number of changes(expansion or contraction)  in each family at each node.
-* sol_cafe_out.summary_fams.txt
+
+* sol_cafe_out.summary_fams.txt 
 每个节点变化(扩张/收缩)的家族编号(\*表示显著). Family IDs that changes(expansion or contraction) at each node(\ * indicates significant).
-* sol_cafe_out.summary_node.txt
+
+* sol_cafe_out.summary_node.txt 
 每个节点中变化(扩张/收缩)的基因家族数量. The number of gene families that change(expansion or contraction) in each node
-* sol_cafe_out.summary_pub.txt
+
+* sol_cafe_out.summary_pub.txt 
 每个物种中基因家族的变化数量. The number of changes in gene families in each species.
 
 For the parameter settings and the meaning of the results, please read the [CAFE](https://github.com/hahnlab/CAFE) documentation in detail.
