@@ -218,7 +218,10 @@ Refer to the example of CAFE5: mammal_gene_families.txt
 
 **3. Ultrametric tree in Newick format.**
 The time of the previous Ultrametric tree needs to be multiplied by 100, so the time base becomes MYA, which can be directly used as the second input file.
- 
+```bash
+sed 's/\([),]\)/\n\1/g' FigTree.tre.nwk | awk -F ":" '{if($2~/[0-9]/){printf $1":"$2*100}else{print $0}}'
+```
+
 **4. Run Cafe5**
 ```bash
 cafe5 -i gene_family_filter.txt -t FigTree.tre.nwk -o out
