@@ -228,6 +228,7 @@ sed 's/\([),]\)/\n\1/g' FigTree.tre.nwk | awk -F ":" '{if($2~/[0-9]/){printf $1"
 ```
 
 **4. Run CAFE
+
 **4.1 Copy and rename the shell script for cafe
 
 ```bash
