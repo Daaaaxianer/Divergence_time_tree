@@ -301,9 +301,38 @@ date
 ```bash
 /home/xian/soft/CAFE/release/cafe cafe_script_sol.sh
 ```
+
+**4.4 Integrate cafe results
+
+In the **python_scripts** directory of [**cafe_tutorial**](https://github.com/hahnlab/cafe_tutorial), there is a script called [**cafetutorial_report_analysis.py**](https://github.com/hahnlab/cafe_tutorial/blob/main/python_scripts/cafetutorial_report_analysis.py) (written by python2) that can collates the results of cafe.
+```bash
+conda activate python27
+
+python cafetutorial_report_analysis.py -i sol_cafe_out.cafe -o sol_cafe_out.summary
+```
+As a result, four files appear, all prefixed with the value of the-o parameter.
+* sol_cafe_out.summary_anc.txt   ## 每个家族在每个节点变化(扩张/收缩)的数量. The number of changes(expansion or contraction)  in each family at each node.
+* sol_cafe_out.summary_fams.txt  ## 每个节点变化(扩张/收缩)的家族编号(\*表示显著). Family IDs that changes(expansion or contraction) at each node(\ * indicates significant).
+* sol_cafe_out.summary_node.txt  ## 每个节点中变化(扩张/收缩)的基因家族数量. The number of gene families that change(expansion or contraction) in each node
+* sol_cafe_out.summary_pub.txt   ## 每个物种中基因家族的变化数量. The number of changes in gene families in each species.
+
 For the parameter settings and the meaning of the results, please read the [CAFE](https://github.com/hahnlab/CAFE) documentation in detail.
 
+**4.5 CAFE_fig
+
+The results of CAFE can be displayed through [**CAFE_fig**](https://github.com/LKremer/CAFE_fig).
+CAFE_fig requires Python3.4+ and ETE3: Install ETE3 with
+```bash
+pip3 install 'ete3==3.0.0b35'
+```
+```bash
+python 
+
+```
+
+
 **5. Run Cafe5**
+
 ```bash
 cafe5 -i gene_family_filter.txt -t FigTree.tre.nwk -o out
 ```
