@@ -259,7 +259,7 @@ lambda -s -t (((2,2)1,(1,1)1)1,1)
 report report.txt
 ```
 
-** After modify**
+**After modify**
 
 ```bash
 vi cafe_script_sol.sh
@@ -296,13 +296,13 @@ report sol_cafe_out
 date
 ```
 
-**4.3 Execute cafe
+**4.3 Execute cafe**
 
 ```bash
 /home/xian/soft/CAFE/release/cafe cafe_script_sol.sh
 ```
 
-**4.4 Integrate cafe results
+**4.4 Integrate cafe results**
 
 In the **python_scripts** directory of [**cafe_tutorial**](https://github.com/hahnlab/cafe_tutorial), there is a script called [**cafetutorial_report_analysis.py**](https://github.com/hahnlab/cafe_tutorial/blob/main/python_scripts/cafetutorial_report_analysis.py) (written by python2) that can collates the results of cafe.
 ```bash
@@ -322,7 +322,7 @@ As a result, four files appear, all prefixed with the value of the-o parameter.
 
 For the parameter settings and the meaning of the results, please read the [CAFE](https://github.com/hahnlab/CAFE) documentation in detail.
 
-**4.5 CAFE_fig
+**4.5 CAFE_fig**
 
 The results of CAFE can be displayed through [**CAFE_fig**](https://github.com/LKremer/CAFE_fig).
 CAFE_fig requires Python3.4+ and ETE3: Install ETE3 with
