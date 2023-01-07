@@ -208,7 +208,7 @@ With a little modification, the above results can be used in the input file of [
 ```bash
 awk 'OFS="\t" {$NF=""; print}' Orthogroups.GeneCount.tsv > tmp && awk '{print "(null)""\t"$0}' tmp > cafe.input.tsv && sed -i '1s/(null)/Desc/g' cafe.input.tsv && rm tmp
 ```
-**2.Filtering exception family **
+**2.Filtering exception family**
 
 After that, it is necessary to eliminate the gene families with excessive copy number differences between different species, otherwise an error will be reported. 
 CAFE5 has built-in scripts to use, and sometimes you need to remove the first line before you run it.
@@ -220,7 +220,7 @@ The output should be two CAFE input files, one for gene families with < 100 gene
 The first file should be used to estimate parameter values, and these values should then be used to analyse the second file.
 Refer to the cafetutorial_clade_and_size_filter.py of [cafe_tutorial](https://github.com/hahnlab/cafe_tutorial/blob/main/python_scripts/cafetutorial_clade_and_size_filter.py)
 
-**3. Ultrametric tree in Newick format.**
+**3. Ultrametric tree in Newick format**
 
 The time of the previous Ultrametric tree needs to be multiplied by 100, so the time base becomes MYA, which can be directly used as the second input file.
 
@@ -337,8 +337,7 @@ CAFE_fig requires Python3.4+ and ETE3: Install ETE3 with
 pip3 install 'ete3==3.0.0b35'
 ```
 ```bash
-python 
-
+python CAFE_fig.py sol_cafe_out.cafe -pb 0.01 -pf 0.01 --dump test -g pdf 
 ```
 
 
